@@ -1,0 +1,76 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Vehicle
+{
+protected:
+  string name;
+  int mileage;
+
+public:
+  void setVehicle()
+  {
+    cout << "Enter the name: ";
+    cin >> name;
+    cout << "Enter the mileage: ";
+    cin >> mileage;
+  }
+};
+
+class four_wheeler : public Vehicle
+{
+  int passengers;
+  int color;
+
+public:
+  void setFourWheeler()
+  {
+    setVehicle();
+    cout << "Enter the number of passengers: ";
+    cin >> passengers;
+    cout << "Enter the color: ";
+    cin >> color;
+  }
+
+  void displayFourWheeler()
+  {
+    cout << "Name: " << name << endl;
+    cout << "Mileage: " << mileage << endl;
+    cout << "Number of Passengers: " << passengers << endl;
+    cout << "Color: " << color << endl;
+  }
+};
+
+class two_wheeler : public Vehicle
+{
+  int engine_capacity;
+
+public:
+  void setTwoWheeler()
+  {
+    setVehicle();
+    cout << "Enter the engine capacity: ";
+    cin >> engine_capacity;
+  }
+
+  void displayTwoWheeler()
+  {
+    cout << "Name: " << name << endl;
+    cout << "Mileage: " << mileage << endl;
+    cout << "Engine Capacity: " << engine_capacity << endl;
+  }
+};
+
+int main()
+{
+  four_wheeler car;
+  car.setFourWheeler();
+  car.displayFourWheeler();
+
+  two_wheeler bike;
+  bike.setTwoWheeler();
+  bike.displayTwoWheeler();
+
+  return 0;
+}

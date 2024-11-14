@@ -1,0 +1,53 @@
+#include <iostream>
+
+class Shape
+{
+protected:
+  int side1;
+  Shape()
+  {
+    side1 = 0;
+  }
+};
+
+class Square : public Shape
+{
+public:
+  void setSide(int s)
+  {
+    side1 = s;
+  }
+  int getArea()
+  {
+    return side1 * side1;
+  }
+};
+
+class Rectangle : public Shape
+{
+  int side2;
+
+public:
+  void setSides(int s1, int s2)
+  {
+    side1 = s1;
+    side2 = s2;
+  }
+  int getArea()
+  {
+    return side1 * side2;
+  }
+};
+
+int main()
+{
+  Square square;
+  square.setSide(4);
+  std::cout << "The area of the square is: " << square.getArea() << std::endl;
+
+  Rectangle rectangle;
+  rectangle.setSides(4, 5);
+  std::cout << "The area of the rectangle is: " << rectangle.getArea() << std::endl;
+
+  return 0;
+}
